@@ -1,0 +1,37 @@
+{
+  "actorSpecification": 1,
+  "views": {
+    "overview": {
+      "title": "Brazil KYB & Sanctions Screening",
+      "transformation": {
+        "fields": [
+          "recordType",
+          "document",
+          "entityName",
+          "riskLevel",
+          "riskScore",
+          "registrationStatus",
+          "totalSanctions",
+          "summary",
+          "uf",
+          "sourceUrl"
+        ]
+      },
+      "display": {
+        "component": "table",
+        "properties": {
+          "recordType": { "label": "Registry / Mode", "format": "text" },
+          "document": { "label": "CNPJ / CPF", "format": "text" },
+          "entityName": { "label": "Entity Name", "format": "text" },
+          "riskLevel": { "label": "Risk Level", "format": "text" },
+          "riskScore": { "label": "Risk Score", "format": "number" },
+          "registrationStatus": { "label": "Receita Status", "format": "text" },
+          "totalSanctions": { "label": "Hits", "format": "number" },
+          "summary": { "label": "Findings / Sanction Details", "format": "text" },
+          "uf": { "label": "UF", "format": "text" },
+          "sourceUrl": { "label": "Official Source", "format": "link" }
+        }
+      }
+    }
+  }
+}

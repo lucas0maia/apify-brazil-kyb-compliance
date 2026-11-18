@@ -1,0 +1,81 @@
+{
+  "title": "Brazil KYB & Sanctions Screening Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "mode": {
+      "title": "Operation Mode",
+      "type": "string",
+      "description": "Select 'screen_entities' to run consolidated multi-registry risk scoring on CNPJs/CPFs, or search/export individual sanctions registries.",
+      "editor": "select",
+      "enum": [
+        "screen_entities",
+        "ceis_sanctions",
+        "cnep_punishments",
+        "cepim_impediments",
+        "slave_labor_registry",
+        "ibama_embargoes"
+      ],
+      "default": "screen_entities"
+    },
+    "documents": {
+      "title": "CNPJs or CPFs to Screen",
+      "type": "array",
+      "description": "List of Brazilian CNPJs (14 digits) or CPFs (11 digits) to screen in 'screen_entities' mode.",
+      "editor": "stringList",
+      "prefill": [
+        "33000167000101",
+        "11338577000124"
+      ],
+      "default": [
+        "33000167000101",
+        "11338577000124"
+      ]
+    },
+    "query": {
+      "title": "Entity Name or Sanction Filter",
+      "type": "string",
+      "description": "Optional case-insensitive filter by company name, person, agency, municipality, or reason across selected registry.",
+      "editor": "textfield",
+      "default": ""
+    },
+    "uf": {
+      "title": "State (UF)",
+      "type": "string",
+      "description": "Optional 2-letter Brazilian state filter (e.g. SP, PA, MT, RJ) for registry search modes.",
+      "editor": "textfield",
+      "default": ""
+    },
+    "includeReceita": {
+      "title": "Enrich with Receita Federal CNPJ & QSA",
+      "type": "boolean",
+      "description": "Fetch corporate registration status, capital, CNAE, and partners (QSA) via BrasilAPI/MinhaReceita for each CNPJ.",
+      "default": true
+    },
+    "includeIbama": {
+      "title": "Include IBAMA Environmental Embargoes in Screening",
+      "type": "boolean",
+      "description": "Also cross-check the full IBAMA environmental embargo dataset (~47 MB ZIP) during 'screen_entities'. Disable for <3s screening across CGU + MTE + Receita.",
+      "default": false
+    },
+    "maxResults": {
+      "title": "Max Results",
+      "type": "integer",
+      "description": "Maximum number of records returned in registry search/export modes.",
+      "default": 50,
+      "minimum": 1,
+      "maximum": 5000
+    },
+    "timeoutSecs": {
+      "title": "Request Timeout (Seconds)",
+      "type": "integer",
+      "description": "HTTP timeout per government data source.",
+      "default": 30,
+      "minimum": 5,
+      "maximum": 120
+    }
+  },
+  "required": [
+    "mode"
+  ]
+}

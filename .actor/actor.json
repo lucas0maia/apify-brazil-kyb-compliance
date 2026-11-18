@@ -1,0 +1,19 @@
+{
+  "actorSpecification": 1,
+  "name": "apify-brazil-kyb-compliance",
+  "title": "Brazil KYB, Sanctions & ESG Due Diligence",
+  "description": "Automated Brazilian KYB, supplier due diligence, and sanctions screening across official Receita Federal (CNPJ/QSA), CGU (CEIS, CNEP, CEPIM), MTE Slave Labor Dirty List, and IBAMA Environmental Embargoes.",
+  "version": "1.0",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "dockerfile": "./Dockerfile",
+  "readme": "./README.md",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "storages": {
+    "dataset": "./dataset_schema.json"
+  },
+  "defaultMemoryMbytes": 512,
+  "usesStandbyMode": true
+}

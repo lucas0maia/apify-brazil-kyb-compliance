@@ -1,0 +1,11 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Brazil KYB & Sanctions Output",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "title": "Screening & Sanctions Dataset",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    }
+  }
+}
